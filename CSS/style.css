@@ -1,0 +1,27 @@
+/* #navbar iframe {
+    width: 100%;
+    /* Set different heights based on screen size */
+    height: 60px; /* Default height */
+}
+
+/* Media queries for different screen sizes */
+@media (min-width: 576px) {
+    #navbar iframe {
+        height: 60px; /* Adjust height for screens >= 576px */
+    }
+}
+@media (min-width: 768px) {
+    #navbar iframe {
+        height: 80px; /* Adjust height for screens >= 768px */
+    }
+}
+@media (min-width: 992px) {
+    #navbar iframe {
+        height: 60px; /* Adjust height for screens >= 992px */
+    }
+}
+@media (min-width: 1200px) {
+    #navbar iframe {
+        height: 60px; /* Adjust height for screens >= 1200px */
+    }
+} */

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Properties</title>
+    <!-- Add Bootstrap CSS link -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="CSS/style.css"> -->
+  <style>
+     .required::after {
+      content: '*';
+      color: red;
+      margin-left: 5px;
+    }
+    #propertyDetailsContainer {
+    margin-top: 20px;
+    }  
+  </style>
+</head>
+<body>   
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="Main-Page.Html">Home rentals</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" href="Main-Page.Html">Home</a>
+            </li>
+            <li class="nav-item" id="property">
+              <a class="nav-link" href="PropertyList.Html">Property</a>
+            </li>
+            <li class="nav-item" id="appSent">
+              <a class="nav-link" href="Appointment-Sent.Html">Appointments</a>
+            </li>
+            <li class="nav-item"  id="appReceived">
+              <a class="nav-link" href="Appointment-Received.Html">Appointments</a>
+          </li>
+          <li class="nav-item"  id="propertyAppv">
+              <a class="nav-link" href="ApproveProperty.Html">Approve</a>
+          </li> 
+          </ul>
+          <ul class="navbar-nav justify-content-end">
+            <li class="nav-item" id="loginLink">
+              <a class="nav-link" href="Login.Html">Login</a>
+            </li> <li class="nav-item" id="registerLink">
+              <a class="nav-link" href="Registration-Page.Html">Register</a>
+          </li>                    
+          <li class="nav-item" id="logout">
+            <a class="nav-link" onclick="logOut()">Logout</a>
+        </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container mt-5">
+        <h1>Search Properties</h1>
+        
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="stateDropdown" class="required">Select State:</label>
+                    <select id="stateDropdown" class="form-control"></select>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="cityDropdown" class="required">Select City:</label>
+                    <select id="cityDropdown" class="form-control"></select>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="price">Price</label>
+                    <input type="number" class="form-control" id="price">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="cityDropdown">Property Type:</label>
+                    <select id="propertyTypeId" class="form-control"></select>
+                </div>
+            </div>
+        </div>
+         <!-- Search Button -->
+         <div class="row">
+            <div class="col-md-12 text-left" style="margin-top: 5px;">
+                <button id="searchButton"  onclick="handleSearch()" class="btn btn-primary">Search</button>
+        </div>
+        </div>
+
+        <!--property detail container-->
+        <!-- <div class="row mt-5" id="propertyDetailsContainer">        
+        </div> -->
+        <div class="row">
+            <div class="col-md-12">
+                <div id="propertyDetailsContainer">
+                    <!-- Property cards will be added here -->
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <!-- Add Bootstrap and custom JavaScript files -->
+    
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script src="JavaScript/common.js"></script>
+<script src="JavaScript/main.js"></script>
+</body>
+</html>
