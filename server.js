@@ -1,11 +1,14 @@
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
+const url = require('url'); // Import the 'url' module
 
 const port = 8090;
 
 const server = http.createServer((req, res) => {
-  const filePath = path.join(__dirname, req.url);
+  const parsedUrl = url.parse(req.url, true); // Parse the URL including query parameters
+  const filePath = path.join(__dirname, parsedUrl.pathname); // Use the parsed pathname
+
   fs.readFile(filePath, (err, data) => {
     if (err) {
       res.writeHead(404, { 'Content-Type': 'text/plain' });

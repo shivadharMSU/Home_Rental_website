@@ -3,6 +3,7 @@ const apiUrl = "http://localhost:3000/";
 
 // Function to get the property ID from the query string
 function getPropertyIdFromQueryString() {
+    
     const urlParams = new URLSearchParams(window.location.search);
     return urlParams.get('propertyId');
 }
@@ -46,6 +47,7 @@ async function fetchPropertyDetails(propertyId) {
 
 // Function to display property details on the page
 async function displayPropertyDetails() {
+    console.log("started fetchiing query");
     const propertyId = getPropertyIdFromQueryString();
     if (propertyId) {
         // Fetch property details

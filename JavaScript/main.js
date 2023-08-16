@@ -162,6 +162,7 @@ async function handleSearch() {
     const bookAppointmentButton = document.createElement('button');
     bookAppointmentButton.textContent = 'Book Appointment';
     bookAppointmentButton.classList.add('btn', 'btn-primary', 'mt-2');
+    console.log("call book")
     bookAppointmentButton.addEventListener('click', () => {
         // Call the bookAppointment function and pass the property ID
         bookAppointment(property.PropertyId);
