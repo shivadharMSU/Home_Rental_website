@@ -354,6 +354,44 @@ app.post('/authenticate', async (req, res) => {
   }
 });
 
+
+
+
+
+app.post('/deleteProperty', async (req, res) => {
+  console.log("inside delete");
+  const { propertyId } = req.body;
+  
+  let connection;
+  try {
+    connection = await pool.getConnection(); // Get a connection from the pool
+
+    const deleteQuery = `CALL DeleteProperty(?)`;
+
+    const [results] = await connection.query(deleteQuery, [propertyId]);
+
+    connection.release(); // Release the connection back to the pool
+
+    console.log(results);
+    console.log(results.length);
+    
+    console.info(results);
+    console.info(results.length);
+    res.json({ message: 'record Deleted successFully' });
+
+
+    
+  } catch (err) {
+    console.error('Error deleting appointments:', err);
+    res.status(500).json({ error: 'An error occurred' });
+  } finally {
+    if (connection) {
+      connection.release(); // Release the connection back to the pool
+    }
+  }
+});
+
+
 // async function getUserTypes(isAdmin) {
 //      try{
 //       // Connect to the database

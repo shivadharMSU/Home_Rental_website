@@ -51,6 +51,13 @@ async function displayProperties() {
         editButton.classList.add('btn', 'btn-primary');
         editButton.addEventListener('click', () => handleEdit(appointment.PropertyId)); // Assuming you have a function 'handleEdit' that takes PropertyId as a parameter
         editCell.appendChild(editButton);
+
+        const deleteCell = row.insertCell();
+        const deleteButton = document.createElement('button');
+        deleteButton.textContent = 'Delete';
+        deleteButton.classList.add('btn', 'btn-primary');
+        deleteButton.addEventListener('click', () => handleDelete(appointment.PropertyId)); // Assuming you have a function 'handleEdit' that takes PropertyId as a parameter
+        deleteCell.appendChild(deleteButton);
     });
 }
 
@@ -60,4 +67,51 @@ async function handleEdit(propertyId) {
     window.location.href = `Property-Details-Page.html?propertyId=${propertyId}`;
 
 }
+
+
+async function handleDelete(propertyId) {
+    console.info(propertyId);
+    console.log(propertyId);
+    deleteProperty(propertyId)
+    window.location.href = `PropertyList.html`;
+
+}
+
+// async function deleteProperty(propertyId) {
+    
+//     try {
+//         const response = await fetch(apiUrl+`deleteProperty/${propertyId}`);
+//         const data = await response.json();
+//         return data;
+//     } catch (error) {
+//         console.error('Error fetching appointments:', error);
+//         return [];
+//     }
+// }
+
+
+async function deleteProperty(propertyId) {
+    try {
+        const response = await fetch(apiUrl+'deleteProperty', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                propertyId: propertyId           
+            })
+        });
+        const properties = await response.json();
+        return properties;
+    } catch (error) {
+        console.error('Error fetching properties:', error);
+        return [];
+    }   
+}
+
+
+
+
+
+
 displayProperties();
